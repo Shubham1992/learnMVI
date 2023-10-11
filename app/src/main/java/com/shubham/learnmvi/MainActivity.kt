@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
             viewModel.state.collect { state -> count.value = state.count }
         }
         Surface(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxWidth().height(500.dp),
             color = MaterialTheme.colors.background
         ) {
             Column(
