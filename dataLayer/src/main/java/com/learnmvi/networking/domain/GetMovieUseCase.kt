@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 class GetMovieUseCase(val repoImpl: MovieRepoImpl) {
 
     operator fun invoke() = flow<UIEvent<List<Movie>>> {
-        emit(UIEvent.Success(repoImpl.getMovieList()))
+        //emit(UIEvent.Success(repoImpl.getMovieList()))
     }.catch {
         emit(UIEvent.Error(message = "Something went wrong"))
     }.flowOn(Dispatchers.IO)

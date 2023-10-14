@@ -34,6 +34,9 @@ object Deps {
 object HiltDeps {
     const val hilt = "com.google.dagger:hilt-android:2.44"
     const val hiltDaggerCompiler = "com.google.dagger:hilt-android-compiler:2.44"
+    const val hiltNavCompose = "androidx.hilt:hilt-navigation-compose:1.1.0-beta01"
+
+
 }
 
 object Retrofit {
