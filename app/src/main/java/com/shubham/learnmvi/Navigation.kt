@@ -11,12 +11,17 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = AppScreens.MainScreen.route
+        startDestination = AppScreens.MainScreen.route ?: ""
     ) {
         composable(
-            route = AppScreens.MainScreen.route
+            route = AppScreens.MainScreen.route ?: ""
         ) {
-            MainScreen()
+            MainScreen(navController)
+        }
+        composable(
+            route = AppScreens.DetailScreen.route ?: ""
+        ) {
+            DetailScreen()
         }
     }
 }

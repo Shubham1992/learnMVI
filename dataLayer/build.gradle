@@ -33,11 +33,9 @@ android {
 dependencies {
 
     implementation project( ":common")
-    implementation Deps.core
-    implementation Deps.appcompat
-    implementation Deps.material
     implementation Retrofit.retrofit
     implementation HiltDeps.hilt
-    implementation HiltDeps.hiltDaggerCompiler
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.5.0"
+
 }

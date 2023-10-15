@@ -1,3 +1,6 @@
 package com.shubham.learnmvi
 
-data class MainScreenModel(val count: Int)
+import com.example.example.MovieListResoponse
+
+
+data class MainScreenModel(val count: Int, val movieListResoponse: MovieListResoponse? = null)

@@ -53,6 +53,8 @@ android {
 
 dependencies {
 
+
+    implementation project(":dataLayer")
     implementation Deps.core
     implementation Deps.appcompat
     implementation Deps.material
