@@ -3,6 +3,7 @@ package com.learnmvi.networking.data.repo
 import com.example.example.MovieListResoponse
 import com.learnmvi.networking.BuildConfig
 import com.learnmvi.networking.api.APIService
+import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,11 +12,12 @@ import javax.inject.Inject
 
 class MovieRepoImpl @Inject constructor() : MovieRepo {
 
-    lateinit var okHttpClient: OkHttpClient
+    @Inject
+    lateinit var baseUrl: String
 
     override suspend fun getMovieList(): MovieListResoponse {
 
-        okHttpClient = if (BuildConfig.DEBUG) {
+        val okHttpClient = if (BuildConfig.DEBUG) {
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             OkHttpClient.Builder()
@@ -29,7 +31,7 @@ class MovieRepoImpl @Inject constructor() : MovieRepo {
 
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .build().create(APIService::class.java)
             .getMoviesList()
